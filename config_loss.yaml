@@ -1,0 +1,39 @@
+train:
+  size: 224
+  cuda: 
+  resume: False
+  pretrain: False
+  mixed_loss: False
+  seed: 34718
+  lr: 0.002
+  batch-size: 16
+  img_num: 128
+  epochs: 30
+  decay: !!float 1e-4
+  dataset: dataset
+  data_path: F:\ChestXRay2017\chest_xray
+  fold: NULL
+  num_worker: 2
+  num_classes: 2
+  mean:
+    - 0.485
+    - 0.456
+    - 0.406
+  std:
+    - 0.229
+    - 0.224
+    - 0.225
+model:
+  folder: checkpoints
+  loss_file:
+  loss_file_mix:
+  loss_caller:
+  loss_caller_mix:
+  alpha: 0.3
+  beta: 0.7
+  file: NSNDP
+  caller: NSNDP
+  name: NSNDP
+  pretrain: resnet50
+log:
+  folder: logs
