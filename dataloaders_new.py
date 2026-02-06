@@ -82,10 +82,10 @@ class CustomDataloader_patient_sample:
                 #saturation=(0.9, 1.1),  # ≈ tf.image.random_saturation
                 #hue=0.1  # ≈ tf.image.random_hue(max_delta=0.1)
             ),
-            transforms.ToTensor(),  # 自动 /255
+            transforms.ToTensor(),  # /255
         ])
 
-        # ===== Val / Test Transform（不做增强）=====
+        # ===== Val / Test Transform=====
         self.eval_transform = transforms.Compose([
             transforms.Resize((img_resize, img_resize)),
             transforms.ToTensor(),
@@ -109,7 +109,7 @@ class CustomDataloader_patient_sample:
                 batch_size=self.batch_size,
                 sampler=sampler,
                 num_workers=self.num_workers,
-                drop_last=True  # 保证每个 batch 满
+                drop_last=True  # 
             )
         else:
             loader = DataLoader(
@@ -120,3 +120,4 @@ class CustomDataloader_patient_sample:
             )
 
         return loader, dataset
+
